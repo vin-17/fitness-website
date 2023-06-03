@@ -1,38 +1,262 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+body {
+    font-family: 'Josefin Sans';
+    background-color: #FFFAFB;
+    
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  * {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+  
   }
-  to {
-    transform: rotate(360deg);
+  
+  ::-webkit-scrollbar {
+    width: 0px;
   }
-}
+  
+  .right-arrow,
+  .left-arrow {
+    cursor: pointer;
+    background: transparent;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FF2625;
+    font-size: 25px;
+    border-radius: 4px;
+    position: absolute;
+    bottom: -20px;
+    right: 80px;
+    transform: scale(1, 1);
+    transition: 0.3s all ease-in-out;
+  }
+  
+  .right-arrow {
+    right: 140px;
+  }
+  
+  .right-arrow:hover,
+  .left-arrow:hover {
+    transform: scale(1.3, 1.3);
+  }
+  
+  .react-horizontal-scrolling-menu--wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .detail-image {
+    width: 729px;
+    height: 742px;
+  }
+  
+  .hero-banner-img {
+    position: absolute;
+    right: 40px;
+    top: 0px;
+    width: 700px;
+    height: 900px;
+    margin-top: -330px;
+  
+  }
+  
+  .exercise-card {
+    width: 400px;
+    height: 445px;
+    background: #fff;
+    border-top: 4px solid #FF2625;
+    border-bottom-left-radius: 20px;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-bottom: 10px;
+    transform: scale(1, 1);
+    transition: 0.3s all ease-in-out;
+  }
+  
+  .exercise-card img {
+    height: 326px;
+  }
+  
+  .bodyPart-card {
+    transform: scale(1, 1);
+    transition: 0.3s all ease-in-out;
+  }
+  
+  .exercise-card:hover,
+  .bodyPart-card:hover {
+    transform: scale(1.1, 1.1);
+  }
+  
+  .search-btn:hover {
+    color: #FF2625 !important;
+    border: 1px solid #FF2625 !important;
+  }
+  
+  .exercise-video {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 387px;
+    height: 381px;
+    text-decoration: none;
+  }
+  
+  @media screen and (max-width:1200px) {
+    .detail-image {
+      width: 300px;
+      height: 300px;
+    }
+  
+  
+    .react-horizontal-scrolling-menu--scroll-container {
+      width: 500px;
+    }
+  
+    .left-arrow,
+    .right-arrow {
+      position: static !important;
+    }
+  
+    .hero-banner-img {
+      display: none;
+    }
+  
+    .exercise-card {
+      width: 320px;
+    }
+  
+    .exercise-video {
+      width: 320px;
+      height: 300px;
+    }
+  
+  }
+  
+  @media screen and (max-width:400px) {
+    .exercise-card {
+      width: 280px;
+    }
+  }
+  /* .navbar{
+    background: #000;
+  } */
+  ul{
+    /* background-color: #000; */
+    margin-top: 10px;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-left: 0;
+    padding:0;
+    padding-top:10px ;
+    display:flex;
+  }
+  
+  ul li{
+    list-style:none;
+    margin:0 17px;
+    transition:0.5s;
+  }
+
+  .navbar-home{
+    text-decoration: none;
+    color:#000;
+    /* border-bottom: 3px solid #FF2625; */
+  }
+
+  .navbar-exercises{
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .a-navbar{
+  display: block;
+  position:relative;
+  text-decoration:none;
+  padding:5px;
+  font-size:18px;
+  font-family: sans-serif;
+  color:#000;
+  text-transform:uppercase;
+  transition:0.5s;
+  }
+
+  ul:hover li a{
+    transform:scale(1.5);
+    opacity:0.8;
+    filter:blur(5px);
+  }
+
+  /* .navbar{
+    transform:scale(1.05);
+    opacity:5;
+    filter:blur(5px);
+  } */
+
+  .a-navbar:hover{
+    transform:scale(1.2);
+    opacity:1;
+    filter:blur(0);
+    text-decoration:none;
+    color:#fff;
+  }
+  
+  .a-navbar:before{
+    border-radius: 5px;
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#FF2625;
+    transition:0.5s;
+    transform-origin:right;
+    transform:scaleX(0);
+    z-index:-1;
+  }
+  
+  .a-navbar:hover:before{
+    transition:transform 0.5s;
+    transform-origin:left;
+    transform:scaleX(1);
+  }
+
+  .fitness-text {
+    padding:2px;
+    /* margin: 0px 0px 0px 0px ; */
+    display : inline;
+    /* background-color: #000; */
+    border: 2px solid;
+    border-image: repeating-linear-gradient(135deg,#F8CA00 0 10px,#f15c22 0 20px,#FF2625 0 30px) 8;
+    -webkit-mask: 
+      conic-gradient(from 180deg at top 8px right 8px, #0000 90deg,#000 0)
+       var(--_i,200%) 0  /200% var(--_i,8px) border-box no-repeat,
+      conic-gradient(at bottom 8px left  8px,  #0000 90deg,#000 0)
+       0   var(--_i,200%)/var(--_i,8px) 200% border-box no-repeat,
+      linear-gradient(#000 0 0) padding-box no-repeat;
+    transition: .3s, -webkit-mask-position .3s .3s;
+  }
+  .fitness-text:hover {
+    --_i: 100%;
+    color: #fd6112;
+    transition: .3s, -webkit-mask-size .3s .3s;
+  }
+  /* .parallax {
+    The image used
+    background-image: url("../assets/images/banner.png'");
+  
+    Set a specific height
+    min-height: 500px;
+  
+    Create the parallax scrolling effect
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  } */
